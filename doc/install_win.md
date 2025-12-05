@@ -75,6 +75,19 @@ mps: False
 ESMFold loaded ok
 ```
 
+If your process gets killed, check RAM available to WSL2, should be at least 16GB:
+```
+cat /proc/meminfo | grep MemTotal
+```
+
+Increase WSL2 RAM by adding a `.wslconfig` file in your Windows user home dir (so NOT your Linux home dir):
+```
+[wsl2]
+memory=16GB
+processors=6
+swap=16GB
+```
+
 CUDA passthrough requires WSL2, so using WSL limits folding to CPU only.
 
 The models are located at ` ~/.cache/huggingface/hub/models--facebook--esmfold_v1/blobs/` and the environment at `~/miniforge3/envs/esmfold-env/`.
