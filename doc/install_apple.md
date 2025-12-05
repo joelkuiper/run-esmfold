@@ -1,7 +1,4 @@
 # Steps to install on Apple silicon (ARM64)
-Procedures and scripts to run ESMFold on various environments
-
-## MacOS (Apple Silicon ARM64)
 
 ### Download Miniforge3 and install in default location
 ```
