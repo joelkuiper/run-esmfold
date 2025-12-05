@@ -77,7 +77,7 @@ def fold_sequence_to_pdb(sequence: str, device: torch.device) -> str:
 
     # Load ESMFold from Hugging Face
     model = EsmForProteinFolding.from_pretrained("facebook/esmfold_v1")
-    model.trunk.set_chunk_size(32) # trades lower peak memory for slower inference, use 64, 32, 16, 8 for more savings
+    #model.trunk.set_chunk_size(32) # trades lower peak memory for slower inference, use 64, 32, 16, 8 for more savings
     model = model.to(device)
     model.eval()
     enable_dropout(model)   # <-- enables dropout
