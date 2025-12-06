@@ -27,7 +27,7 @@ You might get something like this
 TM-score= 0.99972
 ```
 
-Running the 1EZG example on a Windows PC with 16 GB RAM and 16GB VRAM (RTX 3070) via WSL2 Ubuntu-22.04:
+Running the 1EZG example on a Windows PC with 16 GB RAM and 8GB VRAM (RTX 3070) via WSL2 Ubuntu-22.04:
 ```
 CPU mode
 Model load time: 98.67 sec
