@@ -27,7 +27,7 @@ You might get something like this
 TM-score= 0.99972
 ```
 
-Running the 1EZG example on a Windows PC with 16GB RAM and 8GB VRAM (RTX 3070) via WSL2 Ubuntu-22.04:
+Folding the 1EZG example on a AMD Ryzen 5 5600X 6 cores @ 3.70GHz Windows PC with 16GB RAM and 8GB VRAM (RTX 3070) via WSL2 Ubuntu-22.04
 ```
 CPU mode
 Model load time: 98.67 sec
@@ -40,10 +40,25 @@ Inference time: 49.58 sec
 Total time: 215.33 sec
 ```
 
-Running the first 800AA of COL7A1 (UniProt Q02388) on a Intel i7-4790K 4 cores @ 4GHz Windows PC with 32GB RAM via WSL Ubuntu-22.04:
+### Benchmarks
+
+Larger proteins require GPU to fold in reasonable time. However, if you have more RAM than VRAM, you can (slowly) fold proteins in CPU mode that are impossible in GPU mode. Case in point, folding the first 800AA of COL7A1 (UniProt Q02388) on a Intel i7-4790K 4 cores @ 4.00GHz Windows PC with 32GB RAM via WSL Ubuntu-22.04:
 ```
 CPU mode
 Model load time: 40.30 sec
 Inference time: 11640.37 sec
 Total time: 11680.67 sec
 ```
+
+To get an impression of time scaling, we try different residue lengths on the same hardware. Folding the first n residues of COL7A1 (UniProt Q02388) on a AMD Ryzen 5 5600X 6 cores @ 3.70GHz Windows PC with 16GB RAM and 8GB VRAM (RTX 3070) via WSL2 Ubuntu-22.04:
+
+|   n |     CPU |    GPU |
+--------------------------
+| 100 |  115.22 |  36.33 |
+| 200 |  213.63 | 217.22 |
+| 300 |  420.63 |   fail |
+| 400 |  763.71 |   fail |
+| 500 | 1266.67 |   fail |	
+| 600 | 1896.81 |   fail |		
+| 700 | 3602.74 |   fail |
+| 800 |    fail |   fail |	
